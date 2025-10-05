@@ -1,0 +1,56 @@
+{
+  "name": "minions",
+  "version": "2.0.3",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/**/*.js",
+    "start": "nodemon app.js",
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
+    "quiet-lint": "eslint ./ --quiet --cache --ignore-pattern .gitignore",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
+    "prepush-msg": "echo 'Pre-push checks...' && exit 0"
+  },
+  "author": "Norman Chen <normanchen@bananawhale.com>",
+  "license": "ISC",
+  "pre-commit": [
+    "precommit-msg",
+    "quiet-lint"
+  ],
+  "pre-push": [
+    "prepush-msg",
+    "lint",
+    "test"
+  ],
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "caminte": "^0.3.6",
+    "chai": "^3.5.0",
+    "compression": "^1.6.2",
+    "cors": "^2.8.4",
+    "deepmerge": "^1.5.2",
+    "express": "^4.15.2",
+    "express-fileupload": "^1.0.0",
+    "glob-all": "^3.1.0",
+    "immutable": "^3.8.1",
+    "is-mergeable-object": "^1.1.0",
+    "log4js": "^1.1.1",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.9.7",
+    "mysql": "^2.13.0",
+    "redis": "^2.7.1",
+    "rng-js": "^1.0.1",
+    "sinon": "^2.2.0",
+    "socket.io": "^1.7.3",
+    "socket.io-redis": "^4.0.0",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "pre-commit": "^1.2.2",
+    "pre-push": "^0.1.1"
+  }
+}
