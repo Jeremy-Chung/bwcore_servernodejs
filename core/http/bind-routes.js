@@ -2,7 +2,7 @@
  * bind routes
  */
 const { safeRequire } = global;
-const routes = safeRequire("../../routes");
+const routes = safeRequire("../routes");
 const baseConfig = require.call(null, "./config");
 const ActionError = require.call(null, "../../shared_modules/error/ActionError");
 const {
