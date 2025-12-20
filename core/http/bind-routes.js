@@ -5,14 +5,6 @@ const { safeRequire } = global;
 const routes = safeRequire("routes");
 const baseConfig = require.call(null, "./config");
 const ActionError = require.call(null, "../../shared_modules/error/ActionError");
-const {
-    http404Handler = (req, res, next) => {
-        next(new ActionError({
-            message: "Not found",
-            httpCode: 404,
-        }));
-    },
-} = baseConfig;
 
 module.exports = (expressApp) => {
     const validator = (httpMethod, validation) => {
@@ -72,3 +64,12 @@ module.exports = (expressApp) => {
     // 404
     expressApp.all("*", http404Handler);
 };
+
+const {
+    http404Handler = (req, res, next) => {
+        next(new ActionError({
+            message: "Not found",
+            httpCode: 404,
+        }));
+    },
+} = baseConfig;
